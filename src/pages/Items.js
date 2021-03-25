@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import Item from "../components/Item";
+import { Context } from "../Context";
 
 export default function Items() {
-  return (
-    <main className="items">
-      <h3>Music Records</h3>
-    </main>
-  );
+  const { allItems } = useContext(Context);
+
+  const itemElements = allItems.map((item) => (
+    <Item key={item.id} item={item} />
+  ));
+
+  return <main>{itemElements}</main>;
 }
