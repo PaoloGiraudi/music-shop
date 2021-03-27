@@ -7,6 +7,7 @@ const Context = React.createContext();
 
 function ContextProvider({ children }) {
   const [allItems, setAllItems] = useState([]);
+
   const apiUrl =
     "https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json";
 
@@ -25,7 +26,24 @@ function ContextProvider({ children }) {
       .then((data) => setAllItems(data));
   }, []);
 
-  return <Context.Provider value={{ allItems }}>{children}</Context.Provider>;
+  function toggleFavorite(id) {
+    const updatedArray = allItems.map((item) => {
+      if (item.id === id) {
+        return {
+          ...item,
+          isFavorite: !item.isFavorite,
+        };
+      }
+      return item;
+    });
+    setAllItems(updatedArray);
+  }
+
+  return (
+    <Context.Provider value={{ allItems, toggleFavorite }}>
+      {children}
+    </Context.Provider>
+  );
 }
 
 export { Context, ContextProvider };
