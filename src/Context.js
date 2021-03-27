@@ -7,6 +7,7 @@ const Context = React.createContext();
 
 function ContextProvider({ children }) {
   const [allItems, setAllItems] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
 
   const apiUrl =
     "https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json";
@@ -39,8 +40,18 @@ function ContextProvider({ children }) {
     setAllItems(updatedArray);
   }
 
+  function addToCart(item) {
+    setCartItems((prevItems) => [...prevItems, item]);
+  }
+
+  function removeFromCart(id) {
+    setCartItems((prevItems) => prevItems.filter((i) => i.id !== id));
+  }
+
   return (
-    <Context.Provider value={{ allItems, toggleFavorite }}>
+    <Context.Provider
+      value={{ allItems, toggleFavorite, addToCart, cartItems, removeFromCart }}
+    >
       {children}
     </Context.Provider>
   );
