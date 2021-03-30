@@ -53,7 +53,7 @@ export default function Item({ item }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <img style={{ maxWidth: "100%" }} src={item.url} alt="" />
+      <img style={{ maxWidth: "100%" }} src={item.albumArtwork} alt="" />
       {heartIcon()}
       {cartIcon()}
     </div>
