@@ -8,7 +8,7 @@ export default function CartItem({ item }) {
   return (
     <div className="cart-item">
       <IoTrashOutline onClick={() => removeFromCart(item.id)} />
-      <img src={item.img} width="150px" />
+      <img src={item.url} width="150px" alt={item.artist} />
       <p>$5.99</p>
     </div>
   );

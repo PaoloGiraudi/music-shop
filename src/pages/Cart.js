@@ -1,12 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { IoTerminalOutline } from "react-icons/io5";
 import CartItem from "../components/CartItem";
 import { Context } from "../Context";
 
 export default function Cart() {
-  const { cartItems } = useContext(Context);
+  const [buttonText, setButtonText] = useState("Place Order");
+  const { cartItems, emptyCart } = useContext(Context);
   const cartItemElements = cartItems.map((item) => (
-    <CartItem key={item._id} item={item} />
+    <CartItem key={item.id} item={item} />
   ));
 
   const cartTotal = cartItems.length * 5.99;
@@ -15,14 +16,30 @@ export default function Cart() {
     currency: "USD",
   });
 
+  // Simulated order process
+  function placeOrder() {
+    setButtonText("Ordering...");
+    setTimeout(() => {
+      alert("Order Placed!");
+      setButtonText("Place Order");
+      emptyCart();
+    }, 3000);
+  }
+
   return (
     <main className="cart-page">
       <h3>Check out</h3>
       {cartItemElements}
       <p className="total-cost">Total: {cartTotalDisplay}</p>
-      <div className="order-button">
-        <button>Place Order</button>
-      </div>
+
+      {/* If the cart is empty, no button will be shown */}
+      {cartItems.length > 0 ? (
+        <div className="order-button">
+          <button onClick={placeOrder}>{buttonText}</button>
+        </div>
+      ) : (
+        <p>You have no items in the cart.</p>
+      )}
     </main>
   );
 }
