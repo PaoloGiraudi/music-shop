@@ -17,26 +17,29 @@ export default function Item({ item }) {
   function heartIcon() {
     if (item.isFavorite)
       return (
-        <HiHeart className="favorite" onClick={() => toggleFavorite(item.id)} />
+        <HiHeart
+          className="favorite"
+          onClick={() => toggleFavorite(item._id)}
+        />
       );
 
     if (hovered) {
       return (
         <HiOutlineHeart
           className="favorite"
-          onClick={() => toggleFavorite(item.id)}
+          onClick={() => toggleFavorite(item._id)}
         />
       );
     }
   }
 
   function cartIcon() {
-    const alreadyInCart = cartItems.some((i) => i.id === item.id);
+    const alreadyInCart = cartItems.some((i) => i._id === item._id);
     if (alreadyInCart)
       return (
         <HiShoppingCart
           className="cart"
-          onClick={() => removeFromCart(item.id)}
+          onClick={() => removeFromCart(item._id)}
         />
       );
 
@@ -53,7 +56,7 @@ export default function Item({ item }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <img style={{ maxWidth: "100%" }} src={item.albumArtwork} alt="" />
+      <img style={{ maxWidth: "100%" }} src={item.img} alt="" />
       {heartIcon()}
       {cartIcon()}
     </div>

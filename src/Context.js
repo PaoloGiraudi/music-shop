@@ -3,26 +3,18 @@ import React, { useState, useEffect } from "react";
 // const mbApi = new MusicBrainzApi();
 // const apiUrl = "http://musicbrainz.org/ws/2/artist/?query=daft-punk&fmt=json";
 
+// import { getAlbum } from "music-md";
+
 const Context = React.createContext();
 
 function ContextProvider({ children }) {
   const [allItems, setAllItems] = useState([]);
   const [cartItems, setCartItems] = useState([]);
 
-  const apiUrl =
-    "https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json";
-
-  useEffect(async () => {
-    // const getArtist = async () => {
-    //   const artist = await mbApi.getArtist(
-    //     "056e4f3e-d505-4dad-8ec1-d04f521cbb56",
-    //     ["releases", "recordings", "url-rels"]
-    //   );
-    //   console.log(artist);
-    // };
-    // getArtist();
-
-    fetch(apiUrl)
+  const url =
+    "https://raw.githubusercontent.com/christiangroothuis/music-api/master/data/music.albums.json";
+  useEffect(() => {
+    fetch(url)
       .then((res) => res.json())
       .then((data) => setAllItems(data));
   }, []);
@@ -45,12 +37,29 @@ function ContextProvider({ children }) {
   }
 
   function removeFromCart(id) {
-    setCartItems((prevItems) => prevItems.filter((i) => i.id !== id));
+    setCartItems((prevItems) => prevItems.filter((i) => i._id !== id));
   }
+
+  // async function callSearchFunction(e) {
+  //   e.preventDefault();
+  //   // setTitle(e.target[0].value);
+  //   // setArtist(e.target[1].value);
+  //   const res = await fetch(
+  //     "https://raw.githubusercontent.com/christiangroothuis/music-api/master/data/music.albums.json"
+  //   );
+  //   var data = await res.json();
+  //   console.log(data);
+  // }
 
   return (
     <Context.Provider
-      value={{ allItems, toggleFavorite, addToCart, cartItems, removeFromCart }}
+      value={{
+        allItems,
+        toggleFavorite,
+        addToCart,
+        cartItems,
+        removeFromCart,
+      }}
     >
       {children}
     </Context.Provider>

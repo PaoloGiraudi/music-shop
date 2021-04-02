@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
+import { IoTerminalOutline } from "react-icons/io5";
 import CartItem from "../components/CartItem";
 import { Context } from "../Context";
 
 export default function Cart() {
   const { cartItems } = useContext(Context);
   const cartItemElements = cartItems.map((item) => (
-    <CartItem key={item.id} item={item} />
+    <CartItem key={item._id} item={item} />
   ));
 
   const cartTotal = cartItems.length * 5.99;
