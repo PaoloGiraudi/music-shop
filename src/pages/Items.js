@@ -7,7 +7,7 @@ export default function Items() {
   const { allItems } = useContext(Context);
 
   const itemElements = allItems.map((item, _id) => (
-    <Item key={item._id.$oid} item={item} />
+    <Item key={item.id} item={item} />
   ));
 
   return <main>{itemElements}</main>;
