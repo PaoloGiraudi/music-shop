@@ -1,18 +1,14 @@
 import React, { useState, useEffect } from "react";
-// import { MusicBrainzApi } from "musicbrainz-api";
-// const mbApi = new MusicBrainzApi();
-// const apiUrl = "http://musicbrainz.org/ws/2/artist/?query=daft-punk&fmt=json";
-
-// import { getAlbum } from "music-md";
-
 const Context = React.createContext();
 
 function ContextProvider({ children }) {
   const [allItems, setAllItems] = useState([]);
   const [cartItems, setCartItems] = useState([]);
 
+  // Fetching JSON database of albums
+
   const url =
-    "https://raw.githubusercontent.com/christiangroothuis/music-api/master/data/music.albums.json";
+    "https://raw.githubusercontent.com/PaoloGiraudi/music-db-JSON/main/music.json";
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
@@ -37,19 +33,12 @@ function ContextProvider({ children }) {
   }
 
   function removeFromCart(id) {
-    setCartItems((prevItems) => prevItems.filter((i) => i._id !== id));
+    setCartItems((prevItems) => prevItems.filter((i) => i.id !== id));
   }
 
-  // async function callSearchFunction(e) {
-  //   e.preventDefault();
-  //   // setTitle(e.target[0].value);
-  //   // setArtist(e.target[1].value);
-  //   const res = await fetch(
-  //     "https://raw.githubusercontent.com/christiangroothuis/music-api/master/data/music.albums.json"
-  //   );
-  //   var data = await res.json();
-  //   console.log(data);
-  // }
+  function emptyCart() {
+    setCartItems([]);
+  }
 
   return (
     <Context.Provider
@@ -59,6 +48,7 @@ function ContextProvider({ children }) {
         addToCart,
         cartItems,
         removeFromCart,
+        emptyCart
       }}
     >
       {children}
