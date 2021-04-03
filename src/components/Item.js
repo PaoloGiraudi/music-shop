@@ -16,46 +16,36 @@ export default function Item({ item }) {
 
   function heartIcon() {
     if (item.isFavorite)
-      return (
-        <HiHeart className="favorite" onClick={() => toggleFavorite(item.id)} />
-      );
+      return <HiHeart onClick={() => toggleFavorite(item.id)} />;
 
     if (hovered) {
-      return (
-        <HiOutlineHeart
-          className="favorite"
-          onClick={() => toggleFavorite(item.id)}
-        />
-      );
+      return <HiOutlineHeart onClick={() => toggleFavorite(item.id)} />;
     }
   }
 
   function cartIcon() {
     const alreadyInCart = cartItems.some((i) => i.id === item.id);
     if (alreadyInCart)
-      return (
-        <HiShoppingCart
-          className="cart"
-          onClick={() => removeFromCart(item.id)}
-        />
-      );
+      return <HiShoppingCart onClick={() => removeFromCart(item.id)} />;
 
     if (hovered) {
-      return (
-        <HiOutlinePlusCircle className="cart" onClick={() => addToCart(item)} />
-      );
+      return <HiOutlinePlusCircle onClick={() => addToCart(item)} />;
     }
   }
 
   return (
     <div
-      className="image-container"
+      className="relative"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <img style={{ maxWidth: "100%" }} src={item.url} alt={item.artist} />
-      {heartIcon()}
-      {cartIcon()}
+      <img className="" src={item.url} alt={item.artist} />
+      <div className="text-2xl text-red-600 h-8 w-8 p-1  bg-white absolute left-0 top-0">
+        {heartIcon()}
+      </div>
+      <div className="text-2xl text-green-600 h-8 w-8 p-1 bg-white absolute right-0 top-0">
+        {cartIcon()}
+      </div>
     </div>
   );
 }

@@ -10,11 +10,13 @@ export default function Header() {
     cartItems.length > 0 ? <HiShoppingCart /> : <HiOutlineShoppingCart />;
 
   return (
-    <header>
+    <header className="box-border  flex justify-between ">
       <Link to="/">
-        <h1>Music Shop</h1>
+        <h1 className="text-4xl font-bold ">Music Shop</h1>
       </Link>
-      <Link to="/cart">{cartIcon}</Link>
+      <Link to="/cart" className="box-border h-24 w-24 text-4xl ">
+        {cartIcon}
+      </Link>
     </header>
   );
 }

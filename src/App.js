@@ -4,11 +4,9 @@ import Header from "./components/Header";
 import Items from "./pages/Items";
 import Cart from "./pages/Cart";
 
-import "./Style.css";
-
 export default function App() {
   return (
-    <div>
+    <div className='container mx-auto p-12'>
       <Header />
       <Switch>
         <Route exact path="/">

@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react";
-import { IoTerminalOutline } from "react-icons/io5";
 import CartItem from "../components/CartItem";
 import { Context } from "../Context";
 
