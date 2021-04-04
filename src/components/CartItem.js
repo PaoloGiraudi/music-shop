@@ -6,10 +6,13 @@ export default function CartItem({ item }) {
   const { removeFromCart } = useContext(Context);
 
   return (
-    <div className="cart-item">
-      <IoTrashOutline onClick={() => removeFromCart(item.id)} />
-      <img src={item.url} width="150px" alt={item.artist} />
-      <p>$5.99</p>
+    <div className="flex items-center my-4">
+      <IoTrashOutline
+        className="mr-4 text-2xl text-red-600 cursor-pointer"
+        onClick={() => removeFromCart(item.id)}
+      />
+      <img className="w-36" src={item.url} alt={item.artist} />
+      <p className="flex-grow text-lg text-right mr-4">$5.99</p>
     </div>
   );
 }
