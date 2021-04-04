@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/music-shop/static/css/main.d740fdcf.chunk.css",
+    "main.js": "/music-shop/static/js/main.82ca7a17.chunk.js",
+    "main.js.map": "/music-shop/static/js/main.82ca7a17.chunk.js.map",
+    "runtime-main.js": "/music-shop/static/js/runtime-main.a32e7d14.js",
+    "runtime-main.js.map": "/music-shop/static/js/runtime-main.a32e7d14.js.map",
+    "static/js/2.24415a5d.chunk.js": "/music-shop/static/js/2.24415a5d.chunk.js",
+    "static/js/2.24415a5d.chunk.js.map": "/music-shop/static/js/2.24415a5d.chunk.js.map",
+    "index.html": "/music-shop/index.html",
+    "static/css/main.d740fdcf.chunk.css.map": "/music-shop/static/css/main.d740fdcf.chunk.css.map",
+    "static/js/2.24415a5d.chunk.js.LICENSE.txt": "/music-shop/static/js/2.24415a5d.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a32e7d14.js",
+    "static/js/2.24415a5d.chunk.js",
+    "static/css/main.d740fdcf.chunk.css",
+    "static/js/main.82ca7a17.chunk.js"
+  ]
+}
