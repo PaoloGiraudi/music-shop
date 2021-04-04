@@ -1,9 +1,13 @@
-# WORK IN PROGRESS
+# Music Shop
 
 ## Description
 
-I am building a simulated online store with React.
+A very simple store built using React Router.
 
-You will be able to search for music albums, add them the cart and place an order.
+I `fetch()` the data from a JSON file here on GitHub, nothing too fancy.
 
-## ⌛ Coming soon...
+Now it is very basic but I will keep adding some features.
+
+## 🛒 Check it out
+
+[Music Store](https://paologiraudi.github.io/music-store/#/)
