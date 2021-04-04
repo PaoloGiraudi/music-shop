@@ -10,4 +10,4 @@ Now it is very basic but I will keep adding some features.
 
 ## 🛒 Check it out
 
-[Music Store](https://paologiraudi.github.io/music-store/#/)
+[Music Shop](https://paologiraudi.github.io/music-shop/#/)
