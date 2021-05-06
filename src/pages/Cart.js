@@ -35,7 +35,7 @@ export default function Cart() {
       {cartItems.length > 0 ? (
         <div className="flex justify-end">
           <button
-            className="text-xl py-4 px-2 bg-green-200 border-4 border-green-400"
+            className="text-xl py-4 px-2 bg-green-200 border-4 border-green-400 hover:opacity-70"
             onClick={placeOrder}
           >
             {buttonText}
