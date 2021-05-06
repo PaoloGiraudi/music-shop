@@ -33,13 +33,28 @@ export default function Item({ item }) {
     }
   }
 
+  function overlay() {
+    if (hovered) {
+      return (
+        <div className="absolute bottom-0 text-white bg-black m-auto w-full p-1">
+          <h3 className="text-center">{item.album}</h3>
+        </div>
+      );
+    }
+  }
+
   return (
     <div
       className="relative"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <img className="" src={item.url} alt={item.artist} />
+      <img
+        className={hovered ? "opacity-70" : ""}
+        src={item.url}
+        alt={item.artist}
+      />
+      {overlay()}
       <div className="text-2xl text-red-600 h-8 w-8 p-1  bg-white absolute left-0 top-0">
         {heartIcon()}
       </div>
